@@ -92,3 +92,11 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+dev:
+	clear
+	watchmedo shell-command \
+		--patterns='*.py' \
+		--command='clear; python -m unittest discover tests -p "test_*.py"' \
+		-w -R -D \
+		.
