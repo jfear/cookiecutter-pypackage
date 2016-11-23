@@ -95,8 +95,4 @@ install: clean ## install the package to the active Python's site-packages
 
 dev:
 	clear
-	watchmedo shell-command \
-		--patterns='*.py' \
-		--command='clear; python -m unittest discover tests -p "test_*.py"' \
-		-w -R -D \
-		.
+	watchmedo shell-command  --patterns='*.py'  --command='clear; pytest -s'  -W -R -D  .
